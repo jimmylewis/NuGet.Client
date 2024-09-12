@@ -122,6 +122,7 @@
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
     <InternalsVisibleTo Include="NuGet.PackageManagement.UI.Test" />
     <InternalsVisibleTo Include="NuGet.PackageManagement.UI.TestContract" />
+    <InternalsVisibleTo Include="NuGet.Tests.Apex" />
     <InternalsVisibleTo Include="Test.Utility" />
   </ItemGroup>
 

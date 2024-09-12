@@ -6,6 +6,7 @@ using FluentAssertions;
 using Microsoft.Test.Apex.VisualStudio;
 using Microsoft.Test.Apex.VisualStudio.Solution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NuGet.Tests.Apex.Fixtures;
 
 namespace NuGet.Tests.Apex
 {
@@ -92,12 +93,23 @@ namespace NuGet.Tests.Apex
             return string.Join(Environment.NewLine, VisualStudio.GetOutputWindowsLines());
         }
 
+        private ShowPreviewWindowFixture _showPreviewWindowFixture;
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
 
             EnsureVisualStudioHost();
+            _showPreviewWindowFixture = new ShowPreviewWindowFixture(VisualStudio, showWindow: false);
+        }
+
+        [TestCleanup]
+        public override void TestCleanup()
+        {
+            _showPreviewWindowFixture.Dispose();
+
+            base.TestCleanup();
         }
     }
 }
